@@ -1,7 +1,9 @@
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="ISO-8859-1">
+<meta charset="UTF-8">
 <title>Spring MVC</title>
 </head>
 <style>
@@ -49,13 +51,13 @@ a:hover {
 }
 </style>
 <body>
-	<h1>Cada do código</h1>
+	<h1>Cada do cÃ³digo</h1>
 	<nav>
 		<ul>
 			<li><a href="/casadocodigo">Home</a></li>
-			<li><a href="/casadocodigo/produtos">Nosso Produtos</a></li>
-			<li><a href="/casadocodigo/livros">Livros Disponiveis</a></li>
-			<li><a href="/casadocodigo/cadastrar">Cadastrar produto</a></li>
+			<li><a href="/casadocodigo/produtos">Nossos Produtos</a></li>
+			<li><a href="/casadocodigo/produtos">Livros Disponiveis</a></li>
+			<li><a href="/casadocodigo/produtos/form">Cadastrar produto</a></li>
 		</ul>
 	</nav>
 </body>
