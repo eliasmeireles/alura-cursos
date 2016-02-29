@@ -1,6 +1,8 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+<%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 	<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+	<%@ taglib uri="http://www.springframework.org/tags/form" prefix="form" %>
+	<%@ taglib uri="http://www.springframework.org/tags" prefix="s" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -35,13 +37,16 @@ form .btn {
 </style>
 <body>
 	<%@include file="../header.jsp"%>
-	<form action="/casadocodigo/produtos" method="POST">
+	<form:form action="${s:mvcUrl('PC#grava').build()}" method="post" commandName="produto">
 		<label>Titulo</label> 
 		<input class="inputtxt" type="text" name="titulo" placeholder="Titulo do livro"> 
+		<form:errors path="titulo"/>
 		<label>Número de páginas</label> 
-		<input class="inputtxt" type="number" name="paginas" placeholder="Ínforme o número de páginas do livro"> 
+		<input class="inputtxt" type="number" name="paginas" placeholder="Ínforme o número de páginas do livro">
+		<form:errors path="paginas"/> 
 		<label>Descrição</label>
 		<textarea class="inputtxt" name="descricao" rows="5" cols="10" placeholder="Descrição do livro"></textarea>
+		<form:errors path="descricao"/>
 		<c:forEach items="${tipos}" var="tipoPreco" varStatus="status">
             <div>
                 <label>${tipoPreco}</label>
@@ -50,6 +55,6 @@ form .btn {
             </div>
 		</c:forEach>
 		<input class="btn" type="submit" value="Cadastrar">
-	</form>
+	</form:form>
 </body>
 </html>
