@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,10 +8,9 @@
 </head>
 <style>
 body {
-	width: 1915px;
-	margin
-	0
-	auto;
+	max-width: 1915px;
+	width: 95%;
+	margin: 0 auto;
 }
 
 h1 {
