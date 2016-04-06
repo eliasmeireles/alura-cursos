@@ -38,7 +38,7 @@ public class PopulaConta {
 		conta[4].setTitular("Alexandre Duarte");
 		
 		for (Conta contas : conta) {
-			new Dao().persistenceManager(contas);
+			new Dao().insert(contas);
 		}
 
 	}

@@ -10,10 +10,12 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
+@Table(name = "movimentacao")
 public class Movimentacao {
 
 	@Id
@@ -80,6 +82,11 @@ public class Movimentacao {
 	public void setDescricao(String descricao) {
 		this.descricao = descricao;
 	}
-	
+
+	@Override
+	public String toString() {
+		return "Movimentacao [id=" + id + ", conta=" + conta + ", valor=" + valor + ", tipoMovimetacao="
+				+ tipoMovimetacao + ", data=" + data + ", descricao=" + descricao + "]";
+	}
 
 }
