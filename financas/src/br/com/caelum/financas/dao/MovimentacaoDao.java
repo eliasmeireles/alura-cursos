@@ -14,39 +14,31 @@ public class MovimentacaoDao {
 
 		TypedQuery<Movimentacao> query = manager().createQuery(("from Movimentacao"), Movimentacao.class);
 
-		return queryResult(query);
+		return query.getResultList();
 	}
 
 	public List<Movimentacao> localizaMovimentacao(Integer id) {
 
-		TypedQuery<Movimentacao> query = manager().createQuery(("from Movimentacao m where conta_id = :mId"),
+		TypedQuery<Movimentacao> query = manager().createQuery(("from Movimentacao m where conta_id = :pId"),
 				Movimentacao.class);
 
-		query.setParameter("mId", id);
+		query.setParameter("pId", id);
 
-		return queryResult(query);
+		return query.getResultList();
 	}
 
 	public List<Movimentacao> localizaMovimentacaoPorTitular(String titular) {
 
 		TypedQuery<Movimentacao> query = manager()
-				.createQuery(("from Movimentacao m where m.conta.titular = :cTitular"), Movimentacao.class);
+				.createQuery(("from Movimentacao m where m.conta.titular = :pTitular"), Movimentacao.class);
 
-		query.setParameter("cTitular", titular);
+		query.setParameter("pTitular", titular);
 
-		return queryResult(query);
-	}
-
-	private List<Movimentacao> queryResult(TypedQuery<Movimentacao> query) {
-		List<Movimentacao> movimentacoes = query.getResultList();
-
-		manager().close();
-
-		return movimentacoes;
+		return query.getResultList();
 	}
 
 	public static EntityManager manager() {
-		EntityManager manager = new JPAUtil().getEntityManager();
+		EntityManager manager = JPAUtil.getEntityManager();
 		return manager;
 	}
 }

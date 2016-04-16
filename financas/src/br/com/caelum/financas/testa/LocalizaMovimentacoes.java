@@ -3,6 +3,7 @@ package br.com.caelum.financas.testa;
 import java.util.List;
 
 import br.com.caelum.financas.dao.MovimentacaoDao;
+import br.com.caelum.financas.date.Dataconverte;
 import br.com.caelum.financas.model.Conta;
 import br.com.caelum.financas.model.Movimentacao;
 
@@ -11,7 +12,7 @@ public class LocalizaMovimentacoes {
 	public void movimentacao() {
 		MovimentacaoDao dao = new MovimentacaoDao();
 		
-		List<Movimentacao> movimentacoes = dao.localizaMovimentacaoPorTitular("Leandra Marques");
+		List<Movimentacao> movimentacoes = dao.localizaMovimentacao(4);
 		
 		executaAcao(movimentacoes);
 
@@ -30,14 +31,13 @@ public class LocalizaMovimentacoes {
 
 	private static void dadosDaMovimentacao(List<Movimentacao> movimentacoes) {
 		
-		Conta conta;
-		
 		for (Movimentacao movimentacao : movimentacoes) {
 
-			conta = movimentacao.getConta();
+			Conta conta = movimentacao.getConta();
 
 			System.out.println("====================================");
 			System.out.println(conta.getTitular());
+			System.out.println(movimentacao.getDescricao());
 			System.out.println(movimentacao.getDescricao());
 			System.out.println(movimentacao.getValor());
 			System.out.println(movimentacao.getTipoMovimetacao());
