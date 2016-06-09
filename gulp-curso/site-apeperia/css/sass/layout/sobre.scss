@@ -1,0 +1,37 @@
+
+/** Sobre **/
+.sobre {
+  background: #ebebeb;
+}
+
+.duas-colunas {
+  -webkit-column-count: 2;
+  -moz-column-count: 2;
+  column-count: 2;
+  columns: 1;
+}
+
+.duas-colunas h3 {
+  margin: 0;
+}
+
+.sobre p {
+  font: .9em/1.8 sans-serif;
+}
+
+.sobre p:first-child {
+  margin-bottom: 3em;
+}
+
+.plataformas {
+  padding: 0;
+}
+
+@include all-sprite-plata-dev-sprites;
+.plataformas li {
+  display: inline-block;
+  width: 65px;
+  height: 60px;
+  @extend %image-replacement;
+  margin: 1em 1.5em 0 0;
+}

@@ -1,0 +1,29 @@
+@media (max-width: 980px) {
+
+
+
+	.menu-opcoes {
+		position: static;
+		display: block;
+		text-align: center;
+	}
+
+	.menu-opcoes li {
+		margin: .4em;
+	}
+
+	.destaque {
+		font-size: 14px;
+		height: 250px;
+	}
+
+	.menu-opcoes,
+	.menu-opcoes li,
+	.post-destaque,
+	.posts-antigos,
+	form {
+		width: auto;
+	}
+
+
+}
