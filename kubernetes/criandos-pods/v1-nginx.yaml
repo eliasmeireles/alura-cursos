@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: v1-nginx
+  labels:
+    name: v1-nginx
+spec:
+  containers:
+  - name: v1-nginx
+    image: nginx:stable
+    imagePullPolicy: IfNotPresent
+    resources:
+      limits:
+        memory: "128Mi"
+        cpu: "500m"
+    ports:
+      - containerPort: 8080
