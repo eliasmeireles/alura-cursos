@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: v1-local-file-server
+  labels:
+    app: v1-local-file-server
+spec:
+  containers:
+    - name: v1-local-file-server
+      image: v1-file-server:latest
+      imagePullPolicy: "Never"
+      resources:
+        limits:
+          memory: "128Mi"
+          cpu: "500m"
+      ports:
+        - containerPort: 80
