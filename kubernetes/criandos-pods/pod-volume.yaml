@@ -1,0 +1,28 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-volume
+  labels:
+    app: pod-volume
+spec:
+  containers:
+    - name: nginx-container
+      image: nginx:latest
+      volumeMounts:
+        - mountPath: /.pod-persistence
+          name: nginx-container
+
+    - name: jenkins
+      image: jenkins:alpine
+      volumeMounts:
+        - mountPath: /.pod-persistence
+          name: jenkins-container
+  volumes:
+    - name: nginx-container
+      hostPath:
+        path: /home/.nginx-container
+        type: DirectoryOrCreate
+    - name: jenkins-container
+      hostPath:
+        path: /home/.jenkins-container
+        type: DirectoryOrCreate
