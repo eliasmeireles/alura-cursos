@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: logger-test
+  labels:
+    app: logger-test
+spec:
+  containers:
+    - name: logger-test
+      image: logger-test:1
