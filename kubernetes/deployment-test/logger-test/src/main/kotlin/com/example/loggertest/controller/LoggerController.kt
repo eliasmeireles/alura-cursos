@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RequestParam
 import org.springframework.web.bind.annotation.RestController
 import reactor.core.publisher.Flux
+import java.util.UUID
 
 @Slf4j
 @RestController(value = "/")
@@ -22,12 +23,12 @@ class LoggerController {
         @RequestParam(name = "count") count: Int
     ): ResponseEntity<Flux<String>> {
         val flux = Flux.just("Logging...")
-
+        val requestUUID = UUID.randomUUID()
         Thread {
             for (i in 1..count) {
                 @Suppress("BlockingMethodInNonBlockingContext")
                 Thread.sleep(sleep)
-                logger.info("Application running count: {}/{}", i, count)
+                logger.info("[{}]: Application running count: {}/{}", requestUUID.toString(), i, count)
             }
         }.start()
 
