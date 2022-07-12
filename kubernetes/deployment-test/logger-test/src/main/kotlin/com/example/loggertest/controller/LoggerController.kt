@@ -12,12 +12,11 @@ import reactor.core.publisher.Flux
 import java.util.UUID
 
 @Slf4j
-@RestController(value = "/")
-@RequestMapping(value = ["logger"])
+@RestController
 class LoggerController {
     var logger: Logger = LogManager.getLogger(LoggerController::class.java)
 
-    @GetMapping
+    @GetMapping(value = ["logger"])
     fun get(
         @RequestParam(name = "sleep") sleep: Long,
         @RequestParam(name = "count") count: Int

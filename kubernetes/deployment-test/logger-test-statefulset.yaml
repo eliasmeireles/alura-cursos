@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: logger-test
 spec:
-  replicas: 3
+  replicas: 1
   template:
     metadata:
       name: logger-test
@@ -15,6 +15,23 @@ spec:
           image: logger-test:1
           ports:
             - containerPort: 80
+          resources:
+            requests:
+              cpu: 20m
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 80
+            periodSeconds: 10
+            failureThreshold: 3
+            initialDelaySeconds: 20
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: 80
+            periodSeconds: 10
+            failureThreshold: 5
+            initialDelaySeconds: 5
   selector:
     matchLabels:
       app: logger-test
