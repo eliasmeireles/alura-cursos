@@ -13,7 +13,7 @@ spec:
           name: nginx-container
 
     - name: jenkins
-      image: jenkins:alpine
+      image: jenkins:2.60.3-alpine
       volumeMounts:
         - mountPath: /.pod-persistence
           name: jenkins-container
